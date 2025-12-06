@@ -5,13 +5,12 @@ on:
 
 jobs:
   buildAndroid:
-    runs-on: macos-15
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
+    runs-on: ubuntu-latest
 
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+    steps:
+      - uses: actions/checkout@main
+
+      - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.3.7
 
@@ -22,7 +21,7 @@ jobs:
           ndk-version: r27c
           add-to-path: false
 
-      - name: Install Libraries
+      - name: Install Haxelib
         run: |
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
@@ -31,13 +30,13 @@ jobs:
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
           haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
-          haxelib run lime config JAVA_HOME $JAVA_HOME_17_arm64
+          haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
 
       - name: Compile
         run: haxelib run lime build android -final -D officialBuild
 
-      - name: Upload Artifact
+      - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
