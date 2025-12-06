@@ -14,8 +14,10 @@
     },
     {
       "name": "flixel",
-      "type": "haxelib",
-      "version": "5.6.1"
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/th2l-devs/flixel"
     },
     {
       "name": "flixel-addons",
@@ -36,13 +38,15 @@
       "name": "hxcpp",
       "type": "git",
       "dir": null,
-      "ref": null,
+      "ref": "main",
       "url": "https://github.com/HomuHomu833-haxe-stuff/hxcpp"
     },
     {
       "name": "hxCodec",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "cafc58e9046505ff93fa659339808b53faa5d6f3",
+      "url": "https://github.com/polybiusproxy/hxCodec"
     },
     {
       "name": "SScript",
