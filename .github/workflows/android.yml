@@ -8,11 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@main
+      - name: Checkout
+        uses: actions/checkout@main
 
-      - uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.3.7
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+          with:
+            haxe-version: 4.3.7
 
       - name: Setup Android NDK
         id: setup-ndk
@@ -36,7 +38,7 @@ jobs:
       - name: Compile
         run: haxelib run lime build android -final -D officialBuild
 
-      - name: Publish Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
