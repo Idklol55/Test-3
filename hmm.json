@@ -54,7 +54,7 @@
       "name": "SScript",
       "type": "git",
       "dir": null,
-      "ref": "main",
+      "ref": null,
       "url": "https://github.com/th2l-devs/SScript"
     },
     {
